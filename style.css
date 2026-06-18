@@ -90,3 +90,68 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
 }
+
+.guide-page {
+    text-align: left; /* El texto explicativo se lee mejor alineado a la izquierda */
+}
+
+.guide-page h1 {
+    color: #838383;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.guide-intro {
+    color: #969696;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Tarjetas individuales para separar los pasos */
+.step-card {
+    background-color: #00000063;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.step-card h2 {
+    color: #7e7e7e;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: #9b9b9b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Imágenes dentro de la guía */
+.guide-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Botón de volver */
+.back-btn {
+    display: inline-block;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #333;
+}

@@ -1,0 +1,74 @@
+/* Configuraciones básicas para toda la página */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f9; /* Color de fondo */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal que centra todo */
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos de la foto y el texto del perfil */
+.profile {
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.bio {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Contenedor de los botones */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los botones */
+}
+
+/* Estilo de cada botón individual */
+.link-btn {
+    display: block;
+    background-color: #ffffff;
+    color: #333;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 30px; /* Bordes redondeados */
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Efecto cuando el mouse pasa por encima (Hover) */
+.link-btn:hover {
+    transform: translateY(-3px); /* Hace que el botón "suba" un poquito */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #ddd;
+}

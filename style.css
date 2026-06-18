@@ -91,6 +91,26 @@ body {
     box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
 }
 
+.link-btn-wsp {
+    display: block;
+    background-color: rgba(53, 138, 27, 0.212);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.link-btn-wsp:hover {
+    background-color: rgba(255, 182, 193, 0.2); /* Brillo rosa al pasar el mouse */
+    border-color: #ffb6c1;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+}
+
 .guide-page {
     text-align: left; /* El texto explicativo se lee mejor alineado a la izquierda */
 }

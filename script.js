@@ -4,10 +4,19 @@ const ctx = canvas.getContext('2d');
 let width, height;
 let flowers = [];
 
-// Paleta de colores inspirada en tu Instagram (rosas, lilas, blancos)
-const colors = ['#ffb6c1', '#dda0dd', '#ff69b4', '#fff0f5', '#e6e6fa'];
+// Array para guardar nuestras imágenes
+const flowerImages = [];
+const numImages = 8; // Cantidad de imágenes que tienes
 
-// Ajustar el tamaño del canvas al tamaño de la pantalla
+// Cargar las imágenes desde la carpeta 'assets'
+for (let i = 1; i <= numImages; i++) {
+    const img = new Image();
+    // Asumimos que tus imágenes son .png (si son .jpg, cámbialo aquí)
+    img.src = `assets/flor${i}.png`; 
+    flowerImages.push(img);
+}
+
+// Ajustar el tamaño del canvas a la pantalla
 function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
@@ -27,13 +36,17 @@ class Flower {
     reset() {
         this.x = Math.random() * width;
         this.y = height + 50; // Nacen abajo de la pantalla
-        this.size = Math.random() * 8 + 6; // Tamaño entre 6 y 14
+        
+        // Aumenté un poco el tamaño para que las imágenes se vean bien (entre 20px y 50px)
+        this.size = Math.random() * 30 + 20; 
+        
         this.speedY = Math.random() * 0.5 + 0.2; // Velocidad de subida
         this.speedX = (Math.random() - 0.5) * 0.3; // Balanceo horizontal
-        this.color = colors[Math.floor(Math.random() * colors.length)];
         this.rotation = Math.random() * Math.PI * 2;
         this.rotSpeed = (Math.random() - 0.5) * 0.02; // Velocidad de giro
-        this.petals = Math.floor(Math.random() * 2) + 4; // 4 o 5 pétalos
+        
+        // Elegir una imagen al azar de nuestro array
+        this.img = flowerImages[Math.floor(Math.random() * flowerImages.length)];
     }
 
     update() {
@@ -42,46 +55,36 @@ class Flower {
         this.rotation += this.rotSpeed;
 
         // Si la flor sale por arriba, se reinicia abajo
-        if (this.y < -50) {
+        if (this.y < -this.size - 50) {
             this.reset();
         }
     }
 
     draw() {
+        // Si la imagen todavía no terminó de cargar en el navegador, no hacemos nada
+        if (!this.img.complete) return;
+
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.rotation);
         
-        // Dibujar pétalos
-        ctx.fillStyle = this.color;
-        for (let i = 0; i < this.petals; i++) {
-            ctx.beginPath();
-            ctx.ellipse(0, this.size, this.size * 0.4, this.size, 0, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.rotate((Math.PI * 2) / this.petals);
-        }
-
-        // Centro de la flor (dorado/blanco)
-        ctx.fillStyle = '#ffecb3';
-        ctx.beginPath();
-        ctx.arc(0, 0, this.size * 0.4, 0, Math.PI * 2);
-        ctx.fill();
+        // Dibujar la imagen centrada
+        // Los parámetros son: imagen, posición X, posición Y, ancho, alto
+        ctx.drawImage(this.img, -this.size / 2, -this.size / 2, this.size, this.size);
         
         ctx.restore();
     }
 }
 
-// Crear las flores (puedes aumentar el número si quieres más)
+// Crear las flores (puedes ajustar el 25 si quieres más o menos cantidad)
 for (let i = 0; i < 25; i++) {
     flowers.push(new Flower());
 }
 
 // Función que anima todo cuadro por cuadro
 function animate() {
-    // Borrar el frame anterior
     ctx.clearRect(0, 0, width, height);
 
-    // Actualizar y dibujar cada flor
     flowers.forEach(flower => {
         flower.update();
         flower.draw();

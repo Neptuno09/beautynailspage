@@ -105,10 +105,10 @@ body {
 }
 
 .link-btn-wsp:hover {
-    background-color: rgba(255, 182, 193, 0.2); /* Brillo rosa al pasar el mouse */
-    border-color: #ffb6c1;
+    background-color: rgba(151, 255, 119, 0.212); /* Brillo rosa al pasar el mouse */
+    border-color: #8cff88;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+    box-shadow: 0 5px 15px rgba(23, 161, 35, 0.377);
 }
 
 .guide-page {
